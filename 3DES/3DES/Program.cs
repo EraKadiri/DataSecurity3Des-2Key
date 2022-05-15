@@ -102,3 +102,39 @@ namespace TripleDES
 
             }
         }
+        
+        public static void Decrypt(string input)
+        {
+            if (input == "text")
+            {
+                Console.WriteLine("Sheno tekstin qe deshiron te dekriptosh: ");
+                string encryptedText = Console.ReadLine();
+
+                string decryptedText = TripleDes.Decrypt(encryptedText);
+
+                Console.WriteLine("Teksti i enkriptuar = " +
+                   encryptedText + "\n");
+                Console.WriteLine("Tekskti i dekriptuar = " +
+                   decryptedText + "\n");
+
+            }
+            else if (input == "file")
+            {
+                Environment.CurrentDirectory = "C:/Users/erdis/Desktop/GitHub/Data_Security_3DES/3DES/3DES/tektstet per enkriptim";
+                Console.WriteLine("Sheno emrin e file te enkriptuar: ");
+                String path = Console.ReadLine();
+
+                string encryptedText = File.ReadAllText(path);
+
+                string decryptedText = TripleDes.Decrypt(encryptedText);
+
+                Console.WriteLine("Teksti i enkriptuar = " +
+                   encryptedText + "\n");
+                Console.WriteLine("Teksti i dekriptuar = " +
+                   decryptedText + "\n");
+
+            }
+        }
+    }
+
+}
